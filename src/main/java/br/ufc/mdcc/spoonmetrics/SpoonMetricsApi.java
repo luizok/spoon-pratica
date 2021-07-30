@@ -41,6 +41,10 @@ public class SpoonMetricsApi {
 	private static void configure() {
 		addCKMiners();
 		addOOMiners();
+		addAttrMiners();
+		addMethodMiners();
+		addDepthMiners(); // NOT IMPLEMENTED YET
+		addExceptionMiners();
 	}
 
 	private static void addCKMiners() {
@@ -58,6 +62,29 @@ public class SpoonMetricsApi {
 		spoon.addProcessor("br.ufc.mdcc.spoonmetrics.miner.LCOM3Extractor");
 		spoon.addProcessor("br.ufc.mdcc.spoonmetrics.miner.CeExtractor");
 		spoon.addProcessor("br.ufc.mdcc.spoonmetrics.miner.CaExtractor");
+	}
+	
+	private static void addAttrMiners() {
+		spoon.addProcessor("br.ufc.mdcc.spoonmetrics.miner.NODAExtractor");
+		spoon.addProcessor("br.ufc.mdcc.spoonmetrics.miner.NOPAExtractor");
+		spoon.addProcessor("br.ufc.mdcc.spoonmetrics.miner.NOPRAExtractor");
+	}
+	
+	private static void addMethodMiners() {
+		spoon.addProcessor("br.ufc.mdcc.spoonmetrics.miner.NODMExtractor");
+		spoon.addProcessor("br.ufc.mdcc.spoonmetrics.miner.NOPMExtractor");
+		spoon.addProcessor("br.ufc.mdcc.spoonmetrics.miner.NOPRMExtractor");
+	}
+	
+	private static void addDepthMiners() {
+//		spoon.addProcessor("br.ufc.mdcc.spoonmetrics.miner.DNIFExtractor");
+//		spoon.addProcessor("br.ufc.mdcc.spoonmetrics.miner.DNFORExtractor");
+	}
+	
+	private static void addExceptionMiners() {
+		spoon.addProcessor("br.ufc.mdcc.spoonmetrics.miner.NOECBExtractor");
+		spoon.addProcessor("br.ufc.mdcc.spoonmetrics.miner.NOSEExtractor");
+		spoon.addProcessor("br.ufc.mdcc.spoonmetrics.miner.NOREExtractor");
 	}
 
 	private static void process() {
